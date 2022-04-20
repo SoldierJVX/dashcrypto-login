@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
@@ -19,8 +20,10 @@ public class LoginEntity {
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
+    @Email
     @NotNull
     @NotBlank
+    @Column(unique = true)
     private String email;
 
     @NotNull
